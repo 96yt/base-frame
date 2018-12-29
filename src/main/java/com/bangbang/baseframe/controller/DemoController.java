@@ -1,6 +1,8 @@
 package com.bangbang.baseframe.controller;
 
+import com.bangbang.baseframe.model.ResponseResult;
 import com.bangbang.baseframe.service.DemoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/demo",produces = "application/json;charset=UTF-8")
 @RestController
 public class DemoController {
-
+    @Autowired
     private DemoService demoService;
 
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
@@ -22,7 +24,7 @@ public class DemoController {
     }
 
     @RequestMapping(value = "/saveDemo",method = RequestMethod.POST)
-    String saveDemo(
+    ResponseResult saveDemo(
             @RequestParam(value = "name", required = true) String name,
             @RequestParam (value = "age",required = true) Integer age){
         return demoService.saveDemo(name, age);

@@ -1,11 +1,7 @@
 package com.bangbang.baseframe.service;
 
-import org.springframework.stereotype.Component;
+import com.bangbang.baseframe.model.ResponseResult;
 
-import javax.transaction.Transactional;
-
-@Transactional
-@Component
 public interface DemoService {
-    String saveDemo(String name, Integer age);
+    ResponseResult saveDemo(String schoolName, Integer classNum);
 }
